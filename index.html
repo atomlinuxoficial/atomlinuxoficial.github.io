@@ -274,9 +274,25 @@ Controle total do sistema e ferramentas avançadas.
 
 Receba aviso quando a ISO estiver pronta:
 
-<form>
-    <input type="email" placeholder="Seu email">
-    <button class="btn" type="submit">Notificar-me</button>
+<form action="https://formspree.io/f/SEU_ID_AQUI" method="POST">
+
+    <input 
+        type="email" 
+        name="email" 
+        placeholder="Seu email"
+        required
+    >
+
+    <input 
+        type="hidden" 
+        name="message" 
+        value="Quero ser avisado quando o Atom Linux for lançado"
+    >
+
+    <button class="btn" type="submit">
+        Notificar-me
+    </button>
+
 </form>
 
 </div>
