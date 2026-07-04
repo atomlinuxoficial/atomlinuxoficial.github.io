@@ -7,47 +7,87 @@
 
 <style>
 body {
-    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
     background: #ffffff;
     color: #222;
-    line-height: 1.6;
+    scroll-behavior: smooth;
 }
 
+/* ===== HEADER ===== */
 header {
     background: #2b0a3d;
     color: white;
-    padding: 20px 0;
 }
 
 .container {
     width: 90%;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: auto;
 }
 
-h1 {
-    margin: 0;
-    font-size: 36px;
-}
-
-nav {
-    margin-top: 10px;
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
 }
 
 nav a {
     color: #ddd;
-    margin-right: 15px;
+    margin-left: 15px;
     text-decoration: none;
+    transition: 0.3s;
     font-size: 14px;
 }
 
 nav a:hover {
-    text-decoration: underline;
+    color: white;
 }
 
+/* ===== HERO ===== */
+.hero {
+    background: linear-gradient(135deg, #2b0a3d, #120018);
+    color: white;
+    text-align: center;
+    padding: 90px 20px;
+}
+
+.hero h1 {
+    font-size: 54px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: auto;
+    opacity: 0.9;
+}
+
+/* BOTÃO MELHORADO */
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 28px;
+    background: #7a2cff;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.25s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #ff4fd8;
+    transform: scale(1.08);
+    box-shadow: 0 10px 25px rgba(255,79,216,0.3);
+}
+
+/* ===== SEÇÕES ===== */
 section {
-    padding: 40px 0;
+    padding: 60px 0;
 }
 
 h2 {
@@ -56,24 +96,58 @@ h2 {
     padding-left: 10px;
 }
 
-pre, p {
-    white-space: pre-line;
+/* ===== CARDS ===== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
 }
 
 .card {
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin-top: 10px;
-    border-radius: 5px;
     background: #fafafa;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    transition: 0.3s;
 }
 
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+}
+
+/* ===== DOWNLOAD FORM ===== */
+form {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex: 1;
+    min-width: 250px;
+}
+
+/* ===== FOOTER ===== */
 footer {
     background: #111;
     color: #aaa;
-    padding: 20px 0;
-    font-size: 13px;
+    padding: 30px 0;
     margin-top: 40px;
+}
+
+.footer-links a {
+    color: #aaa;
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: white;
 }
 </style>
 
@@ -82,203 +156,147 @@ footer {
 <body>
 
 <header>
-<div class="container">
-    <h1>Atom Linux</h1>
+<div class="container header-flex">
+    <div><strong>Atom Linux</strong></div>
     <nav>
-        <a href="#">Início</a>
-        <a href="#">Download</a>
-        <a href="#">Documentação</a>
-        <a href="#">Segurança</a>
-        <a href="#">Comunidade</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#filosofia">Filosofia</a>
+        <a href="#base">Base</a>
+        <a href="#edicoes">Edições</a>
+        <a href="#jogos">Jogos</a>
+        <a href="#seguranca">Segurança</a>
+        <a href="#download">Download</a>
     </nav>
 </div>
 </header>
 
-<section>
+<!-- HERO -->
+<div class="hero">
+    <h1>Atom Linux</h1>
+    <p>
+        Uma distribuição Linux baseada em Debian criada para unir estabilidade,
+        jogos Windows e liberdade total de personalização.
+    </p>
+
+    <a class="btn" href="#download">Baixar Atom Linux</a>
+</div>
+
+<!-- SOBRE -->
+<section id="sobre">
 <div class="container">
-
-<h2>Atom Linux</h2>
-
+<h2>Sobre</h2>
 <p>
-Atom Linux é uma distribuição Linux baseada em Debian criada para unir três objetivos que normalmente entram em conflito: estabilidade, compatibilidade com jogos Windows e liberdade de personalização.
-
-O sistema foi desenvolvido para atender tanto iniciantes quanto usuários avançados sem obrigar ninguém a trocar de distribuição conforme aprende mais sobre Linux.
+Atom Linux é uma distribuição baseada em Debian que busca equilíbrio entre estabilidade, compatibilidade com jogos Windows e liberdade de personalização.
 </p>
-
 </div>
 </section>
 
-<section>
+<!-- FILOSOFIA -->
+<section id="filosofia">
 <div class="container">
-
 <h2>Filosofia</h2>
 
 <div class="card">
-"Comece fácil. Cresça sem limites."
+"Comece fácil. Cresça sem limites."<br><br>
 
-O usuário pode utilizar o sistema de forma simples desde o primeiro dia ou desbloquear recursos avançados conforme ganha experiência.
+O sistema foi projetado para evoluir com o usuário, sem obrigar migração para outra distribuição.
 </div>
-
 </div>
 </section>
 
-<section>
+<!-- BASE -->
+<section id="base">
 <div class="container">
-
 <h2>Base do Sistema</h2>
 
-<div class="card">
-- Base: Debian Stable  
-- Ambiente gráfico: KDE Plasma  
-- Gerenciador de pacotes: APT  
-- Compatibilidade com Flatpak  
-- Compatibilidade com aplicativos AppImage  
-
-A escolha do Debian garante estabilidade, segurança e manutenção de longo prazo.
+<div class="grid">
+<div class="card">Debian Stable</div>
+<div class="card">KDE Plasma</div>
+<div class="card">APT</div>
+<div class="card">Flatpak</div>
+<div class="card">AppImage</div>
 </div>
-
 </div>
 </section>
 
-<section>
+<!-- EDIÇÕES -->
+<section id="edicoes">
 <div class="container">
-
 <h2>Edições</h2>
 
+<div class="grid">
 <div class="card">
-<strong>Atom Linux Amigável</strong>
-
-Voltada para:
-- Usuários vindos do Windows  
-- Estudantes  
-- Usuários domésticos  
-- Gamers iniciantes no Linux  
-
-Características:
-- Interface simplificada  
-- Assistentes gráficos  
-- Configurações avançadas ocultas  
-- Atualizações automáticas  
-- Instalação simplificada de programas  
-- Configuração automática de drivers  
+<strong>Amigável</strong><br><br>
+Foco em iniciantes, interface simples e automação.
 </div>
 
 <div class="card">
-<strong>Atom Linux Pro</strong>
-
-Voltada para:
-- Desenvolvedores  
-- Administradores de sistemas  
-- Usuários avançados  
-- Entusiastas de Linux  
-
-Características:
-- Todas as opções desbloqueadas  
-- Ferramentas avançadas instaladas  
-- Acesso facilitado ao terminal  
-- Configurações detalhadas do sistema  
-- Monitoramento avançado  
-- Personalização completa  
+<strong>Pro</strong><br><br>
+Controle total do sistema e ferramentas avançadas.
 </div>
-
+</div>
 </div>
 </section>
 
-<section>
+<!-- JOGOS -->
+<section id="jogos">
 <div class="container">
-
 <h2>Jogos</h2>
 
-<div class="card">
-Um dos pilares do Atom Linux é a compatibilidade com jogos.
-
-Instalados ou disponíveis com um clique:
-
-- Steam  
-- Wine  
-- Lutris  
-- Proton  
-- Proton GE  
-
-Objetivos:
-- Executar jogos Windows com o mínimo de configuração possível  
-- Permitir que usuários iniciantes joguem sem aprender comandos complexos  
-- Fornecer ferramentas avançadas para ajuste de desempenho  
+<div class="grid">
+<div class="card">Steam</div>
+<div class="card">Wine</div>
+<div class="card">Lutris</div>
+<div class="card">Proton GE</div>
 </div>
-
 </div>
 </section>
 
-<section>
+<!-- SEGURANÇA -->
+<section id="seguranca">
 <div class="container">
-
 <h2>Segurança</h2>
 
-<div class="card">
-- Firewall ativo por padrão  
-- AppArmor habilitado  
-- Atualizações automáticas de segurança  
-- Repositórios assinados digitalmente  
-- Alertas para aplicativos não confiáveis  
-- Ferramentas de recuperação do sistema  
+<div class="grid">
+<div class="card">Firewall ativo</div>
+<div class="card">AppArmor</div>
+<div class="card">Atualizações automáticas</div>
+<div class="card">Repositórios assinados</div>
 </div>
-
 </div>
 </section>
 
-<section>
+<!-- DOWNLOAD -->
+<section id="download">
 <div class="container">
-
-<h2>Produtividade</h2>
+<h2>Download</h2>
 
 <div class="card">
-- LibreOffice  
-- Compatibilidade com Microsoft 365 Web  
-- Leitores de PDF  
-- Ferramentas de desenvolvimento  
-- Ferramentas multimídia  
-</div>
+<strong>Atom Linux ainda em desenvolvimento</strong><br><br>
 
+Receba aviso quando a ISO estiver pronta:
+
+<form>
+    <input type="email" placeholder="Seu email">
+    <button class="btn" type="submit">Notificar-me</button>
+</form>
+
+</div>
 </div>
 </section>
 
-<section>
-<div class="container">
-
-<h2>Personalização</h2>
-
-<div class="card">
-- Alteração completa de temas  
-- Alteração de ícones  
-- Alteração de animações  
-- Configuração de painéis  
-- Configuração de atalhos  
-- Perfis de aparência pré-configurados  
-</div>
-
-</div>
-</section>
-
-<section>
-<div class="container">
-
-<h2>Objetivo Final</h2>
-
-<div class="card">
-O Atom Linux busca ser uma distribuição capaz de acompanhar toda a jornada do usuário.
-
-O iniciante encontra um sistema simples e acolhedor.  
-O usuário avançado encontra um ambiente poderoso e altamente configurável.
-
-Tudo isso mantendo estabilidade, segurança e compatibilidade com software e jogos modernos.
-</div>
-
-</div>
-</section>
-
+<!-- FOOTER -->
 <footer>
 <div class="container">
-Atom Linux — Distribuição baseada em Debian (projeto conceitual)
+
+<p>Atom Linux — Projeto baseado em Debian</p>
+
+<div class="footer-links">
+    <a href="#">GitHub</a>
+    <a href="#">Discord</a>
+    <a href="#">Contato</a>
+</div>
+
 </div>
 </footer>
 
