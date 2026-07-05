@@ -45,6 +45,18 @@ nav a:hover {
     color: white;
 }
 
+/* ===== LOGO CONTAINER ===== */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-container img {
+    height: 40px;
+    width: auto;
+}
+
 /* ===== HERO ===== */
 .hero {
     background: linear-gradient(135deg, #2b0a3d, #120018);
@@ -155,7 +167,10 @@ footer {
 
 <header>
 <div class="container header-flex">
-    <div><strong>Atom Linux</strong></div>
+    <div class="logo-container">
+        <img src="logo.png" alt="Atom Linux Logo">
+        <strong>Atom Linux</strong>
+    </div>
     <nav>
         <a href="#sobre">Sobre</a>
         <a href="#filosofia">Filosofia</a>
@@ -195,7 +210,7 @@ Atom Linux é uma distribuição baseada em Debian que busca equilíbrio entre e
 <h2>Filosofia</h2>
 
 <div class="card">
-“Comece fácil. Cresça sem limites.”<br><br>
+"Comece fácil. Cresça sem limites."<br><br>
 
 O sistema foi projetado para evoluir com o usuário, sem obrigar migração para outra distribuição.
 </div>
