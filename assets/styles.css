@@ -1,0 +1,220 @@
+/* assets/styles.css — moved from inline styles in index.html */
+
+:root{
+  --brand-dark:#2b0a3d;
+  --brand-accent:#7a2cff;
+}
+
+.skip-link{
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus{
+  left: 10px;
+  top: 10px;
+  width: auto;
+  height: auto;
+  background: #fff;
+  padding: 8px 12px;
+  z-index: 9999;
+  border-radius: 4px;
+  color: var(--brand-dark);
+  text-decoration: none;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #222;
+    scroll-behavior: smooth;
+}
+
+/* ===== HEADER ===== */
+header {
+    background: var(--brand-dark);
+    color: white;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+nav a {
+    color: #ddd;
+    margin-left: 15px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: white;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-container img {
+    height: 42px;
+    width: 42px; /* evita shift de layout*/
+    object-fit: contain;
+}
+
+/* ===== HERO ===== */
+.hero {
+    background:
+    linear-gradient(
+        135deg,
+        var(--brand-dark),
+        #120018
+    );
+
+    color: white;
+    text-align: center;
+    padding: 90px 20px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    background:
+    radial-gradient(
+        rgba(122,44,255,0.15),
+        transparent 70%
+    );
+
+    top: -200px;
+    right: -150px;
+
+    pointer-events: none;
+}
+
+.hero-logo {
+    width: 220px;
+    max-width: 80%;
+    margin-bottom: 20px;
+
+    filter: drop-shadow(
+        0 0 15px rgba(122,44,255,0.35)
+    );
+}
+
+.hero h1 {
+    font-size: 54px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: auto;
+    opacity: 0.9;
+}
+
+/* BOTÃO MELHORADO */
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 28px;
+    background: var(--brand-accent);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.25s;
+}
+
+.btn:hover {
+    background: #ff4fd8;
+    transform: scale(1.08);
+    box-shadow: 0 10px 25px rgba(255,79,216,0.3);
+}
+
+/* ===== SEÇÕES ===== */
+section {
+    padding: 60px 0;
+}
+
+h2 {
+    color: var(--brand-dark);
+    border-left: 5px solid var(--brand-dark);
+    padding-left: 10px;
+}
+
+/* ===== CARDS ===== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #fafafa;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+}
+
+/* ===== DOWNLOAD FORM ===== */
+form {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+input[type="email"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex: 1;
+    min-width: 250px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #111;
+    color: #aaa;
+    padding: 30px 0;
+    margin-top: 40px;
+}
+
+.footer-links a {
+    color: #aaa;
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: white;
+}

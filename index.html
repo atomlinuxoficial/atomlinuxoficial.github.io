@@ -4,218 +4,31 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Atom Linux</title>
-<link rel="icon" href="file_0000000019e4720eaed214efee7f3987.png">
+<link rel="icon" href="/file_0000000019e4720eaed214efee7f3987.png">
+<link rel="preload" href="/assets/styles.css" as="style">
+<link rel="stylesheet" href="/assets/styles.css">
 
 <!-- Preload da logo principal para reduzir LCP -->
-<link rel="preload" href="file_0000000019e4720eaed214efee7f3987.png" as="image">
+<link rel="preload" href="/file_0000000019e4720eaed214efee7f3987.png" as="image">
 <meta name="description" content="Atom Linux — distribuição baseada em Debian focada em estabilidade e compatibilidade com jogos.">
-
-<style>
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #ffffff;
-    color: #222;
-    scroll-behavior: smooth;
-}
-
-/* ===== HEADER ===== */
-header {
-    background: #2b0a3d;
-    color: white;
-}
-
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
-}
-
-.header-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-}
-
-nav a {
-    color: #ddd;
-    margin-left: 15px;
-    text-decoration: none;
-    transition: 0.3s;
-    font-size: 14px;
-}
-
-nav a:hover {
-    color: white;
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.logo-container img {
-    height: 42px;
-    width: 42px; /* evita shift de layout*/
-    object-fit: contain;
-}
-
-/* ===== HERO ===== */
-.hero {
-    background:
-    linear-gradient(
-        135deg,
-        #2b0a3d,
-        #120018
-    );
-
-    color: white;
-    text-align: center;
-    padding: 90px 20px;
-
-    position: relative;
-    overflow: hidden;
-}
-
-.hero::after {
-    content: "";
-
-    position: absolute;
-
-    width: 500px;
-    height: 500px;
-
-    background:
-    radial-gradient(
-        rgba(122,44,255,0.15),
-        transparent 70%
-    );
-
-    top: -200px;
-    right: -150px;
-
-    pointer-events: none;
-}
-
-.hero-logo {
-    width: 220px;
-    max-width: 80%;
-    margin-bottom: 20px;
-
-    filter: drop-shadow(
-        0 0 15px rgba(122,44,255,0.35)
-    );
-}
-
-.hero h1 {
-    font-size: 54px;
-    margin-bottom: 10px;
-}
-
-.hero p {
-    max-width: 700px;
-    margin: auto;
-    opacity: 0.9;
-}
-
-/* BOTÃO MELHORADO */
-.btn {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 14px 28px;
-    background: #7a2cff;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
-    transition: 0.25s;
-}
-
-.btn:hover {
-    background: #ff4fd8;
-    transform: scale(1.08);
-    box-shadow: 0 10px 25px rgba(255,79,216,0.3);
-}
-
-/* ===== SEÇÕES ===== */
-section {
-    padding: 60px 0;
-}
-
-h2 {
-    color: #2b0a3d;
-    border-left: 5px solid #2b0a3d;
-    padding-left: 10px;
-}
-
-/* ===== CARDS ===== */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-}
-
-.card {
-    background: #fafafa;
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 8px;
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.1);
-}
-
-/* ===== DOWNLOAD FORM ===== */
-form {
-    margin-top: 20px;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    flex: 1;
-    min-width: 250px;
-}
-
-/* ===== FOOTER ===== */
-footer {
-    background: #111;
-    color: #aaa;
-    padding: 30px 0;
-    margin-top: 40px;
-}
-
-.footer-links a {
-    color: #aaa;
-    margin-right: 15px;
-    text-decoration: none;
-}
-
-.footer-links a:hover {
-    color: white;
-}
-</style>
-
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#2b0a3d">
 </head>
 
 <body>
 
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+
 <header>
 <div class="container header-flex">
     <div class="logo-container">
-        <img src="file_0000000019e4720eaed214efee7f3987.png" alt="Atom Linux Logo" width="42" height="42" loading="eager">
+        <picture>
+          <source srcset="/file_0000000019e4720eaed214efee7f3987.png" type="image/png">
+          <img src="/file_0000000019e4720eaed214efee7f3987.png" alt="Atom Linux Logo" width="42" height="42" loading="eager">
+        </picture>
         <strong>Atom Linux</strong>
     </div>
-    <nav>
+    <nav aria-label="Menu principal">
         <a href="#sobre">Sobre</a>
         <a href="#filosofia">Filosofia</a>
         <a href="#base">Base</a>
@@ -227,15 +40,20 @@ footer {
 </div>
 </header>
 
+<main id="main">
+
 <!-- HERO -->
 <div class="hero">
 
-    <img src="file_0000000019e4720eaed214efee7f3987.png"
-         alt="Atom Linux Logo"
-         class="hero-logo"
-         width="220"
-         height="220"
-         loading="eager">
+    <picture>
+      <source srcset="/file_0000000019e4720eaed214efee7f3987.png" type="image/png">
+      <img src="/file_0000000019e4720eaed214efee7f3987.png"
+           alt="Atom Linux Logo"
+           class="hero-logo"
+           width="220"
+           height="220"
+           loading="eager">
+    </picture>
 
     <h1>Atom Linux</h1>
 
@@ -345,7 +163,9 @@ Receba aviso quando a ISO estiver pronta:
 
 <form action="https://formspree.io/f/xnjkwqjz" method="POST">
 
+    <label for="email-input" class="sr-only">Seu email</label>
     <input 
+        id="email-input"
         type="email" 
         name="email" 
         placeholder="Seu email"
@@ -367,6 +187,8 @@ Receba aviso quando a ISO estiver pronta:
 </div>
 </div>
 </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer>
