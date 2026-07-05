@@ -1,0 +1,20 @@
+{
+  "name": "Atom Linux",
+  "short_name": "Atom",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2b0a3d",
+  "icons": [
+    {
+      "src": "/file_0000000019e4720eaed214efee7f3987.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/file_0000000019e4720eaed214efee7f3987.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
