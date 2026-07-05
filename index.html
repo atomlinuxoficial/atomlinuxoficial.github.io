@@ -4,7 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Atom Linux</title>
-<link rel="icon" href="logo.png">
+<link rel="icon" href="file_0000000019e4720eaed214efee7f3987.png">
+
+<!-- Preload da logo principal para reduzir LCP -->
+<link rel="preload" href="file_0000000019e4720eaed214efee7f3987.png" as="image">
+<meta name="description" content="Atom Linux — distribuição baseada em Debian focada em estabilidade e compatibilidade com jogos.">
 
 <style>
 body {
@@ -54,6 +58,8 @@ nav a:hover {
 
 .logo-container img {
     height: 42px;
+    width: 42px; /* evita shift de layout*/
+    object-fit: contain;
 }
 
 /* ===== HERO ===== */
@@ -206,7 +212,7 @@ footer {
 <header>
 <div class="container header-flex">
     <div class="logo-container">
-        <img src="logo.png" alt="Atom Linux Logo">
+        <img src="file_0000000019e4720eaed214efee7f3987.png" alt="Atom Linux Logo" width="42" height="42" loading="eager">
         <strong>Atom Linux</strong>
     </div>
     <nav>
@@ -224,9 +230,12 @@ footer {
 <!-- HERO -->
 <div class="hero">
 
-    <img src="logo.png"
+    <img src="file_0000000019e4720eaed214efee7f3987.png"
          alt="Atom Linux Logo"
-         class="hero-logo">
+         class="hero-logo"
+         width="220"
+         height="220"
+         loading="eager">
 
     <h1>Atom Linux</h1>
 
