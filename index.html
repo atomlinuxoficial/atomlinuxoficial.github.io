@@ -58,10 +58,39 @@ nav a:hover {
 
 /* ===== HERO ===== */
 .hero {
-    background: linear-gradient(135deg, #2b0a3d, #120018);
+    background:
+    linear-gradient(
+        135deg,
+        #2b0a3d,
+        #120018
+    );
+
     color: white;
     text-align: center;
     padding: 90px 20px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    background:
+    radial-gradient(
+        rgba(122,44,255,0.15),
+        transparent 70%
+    );
+
+    top: -200px;
+    right: -150px;
+
+    pointer-events: none;
 }
 
 .hero-logo {
