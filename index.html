@@ -131,6 +131,8 @@ nav a:hover {
     border-radius: 6px;
     font-weight: bold;
     transition: 0.25s;
+    border: none;
+    cursor: pointer;
 }
 
 .btn:hover {
@@ -162,12 +164,71 @@ h2 {
     border: 1px solid #ddd;
     padding: 20px;
     border-radius: 8px;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
 
 .card:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+}
+
+/* Card ativo/expandido */
+.card.active {
+    grid-column: 1 / -1;
+    background: #f0f0f0;
+    border-color: #7a2cff;
+    box-shadow: 0 15px 35px rgba(122, 44, 255, 0.2);
+}
+
+/* Conteúdo principal do card */
+.card-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Descrição oculta por padrão */
+.card-description {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+    margin-top: 0;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Quando o card está ativo, mostra a descrição */
+.card.active .card-description {
+    max-height: 200px;
+    opacity: 1;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 2px solid #7a2cff;
+}
+
+/* Botão de fechar */
+.card-close {
+    display: none;
+    color: #7a2cff;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card.active .card-close {
+    display: block;
 }
 
 /* ===== DOWNLOAD FORM ===== */
@@ -277,11 +338,30 @@ O sistema foi projetado para evoluir com o usuário, sem obrigar migração para
 <h2>Base do Sistema</h2>
 
 <div class="grid">
-<div class="card">Debian Stable</div>
-<div class="card">KDE Plasma</div>
-<div class="card">APT</div>
-<div class="card">Flatpak</div>
-<div class="card">AppImage</div>
+<div class="card expandable" data-title="Debian Stable" data-description="Sistema operacional base extremamente estável e confiável, com suporte de longo prazo e uma comunidade robusta.">
+    <div class="card-title">Debian Stable <button class="card-close">×</button></div>
+    <div class="card-description"></div>
+</div>
+
+<div class="card expandable" data-title="KDE Plasma" data-description="Ambiente desktop moderno, personalizável e intuitivo que oferece uma experiência visual atraente e funcional.">
+    <div class="card-title">KDE Plasma <button class="card-close">×</button></div>
+    <div class="card-description"></div>
+</div>
+
+<div class="card expandable" data-title="APT" data-description="Gerenciador de pacotes poderoso e confiável que facilita a instalação e atualização de software.">
+    <div class="card-title">APT <button class="card-close">×</button></div>
+    <div class="card-description"></div>
+</div>
+
+<div class="card expandable" data-title="Flatpak" data-description="Formato de distribuição universal de aplicativos que oferece melhor segurança e compatibilidade entre distribuições.">
+    <div class="card-title">Flatpak <button class="card-close">×</button></div>
+    <div class="card-description"></div>
+</div>
+
+<div class="card expandable" data-title="AppImage" data-description="Executáveis portáveis que não requerem instalação, permitindo executar aplicativos em qualquer distribuição Linux.">
+    <div class="card-title">AppImage <button class="card-close">×</button></div>
+    <div class="card-description"></div>
+</div>
 </div>
 </div>
 </section>
@@ -292,14 +372,14 @@ O sistema foi projetado para evoluir com o usuário, sem obrigar migração para
 <h2>Edições</h2>
 
 <div class="grid">
-<div class="card">
-<strong>Amigável</strong><br><br>
-Foco em iniciantes, interface simples e automação.
+<div class="card expandable" data-title="Amigável" data-description="Foco em iniciantes, interface simples e automação. Configuração pré-otimizada para facilitar o primeiro uso sem necessidade de conhecimento técnico avançado.">
+    <div class="card-title">Amigável <button class="card-close">×</button></div>
+    <div class="card-description"></div>
 </div>
 
-<div class="card">
-<strong>Pro</strong><br><br>
-Controle total do sistema e ferramentas avançadas.
+<div class="card expandable" data-title="Pro" data-description="Controle total do sistema e ferramentas avançadas. Ideal para usuários experientes que desejam personalização completa e máxima liberdade de configuração.">
+    <div class="card-title">Pro <button class="card-close">×</button></div>
+    <div class="card-description"></div>
 </div>
 </div>
 </div>
@@ -311,10 +391,25 @@ Controle total do sistema e ferramentas avançadas.
 <h2>Jogos</h2>
 
 <div class="grid">
-<div class="card">Steam</div>
-<div class="card">Wine</div>
-<div class="card">Lutris</div>
-<div class="card">Proton GE</div>
+<div class="card expandable" data-title="Steam" data-description="Plataforma oficial de distribuição de jogos para Linux. Oferece acesso a milhares de títulos com suporte nativo e através do Proton.">
+    <div class="card-title">Steam <button class="card-close">×</button></div>
+    <div class="card-description"></div>
+</div>
+
+<div class="card expandable" data-title="Wine" data-description="Compatibilidade de software Windows no Linux. Permite rodar aplicações Windows diretamente sem necessidade de máquina virtual.">
+    <div class="card-title">Wine <button class="card-close">×</button></div>
+    <div class="card-description"></div>
+</div>
+
+<div class="card expandable" data-title="Lutris" data-description="Plataforma de gaming open-source que simplifica a instalação e execução de jogos de múltiplas fontes.">
+    <div class="card-title">Lutris <button class="card-close">×</button></div>
+    <div class="card-description"></div>
+</div>
+
+<div class="card expandable" data-title="Proton GE" data-description="Versão aprimorada do Proton com suporte estendido para jogos antigos e novos, oferecendo melhor compatibilidade.">
+    <div class="card-title">Proton GE <button class="card-close">×</button></div>
+    <div class="card-description"></div>
+</div>
 </div>
 </div>
 </section>
@@ -325,10 +420,25 @@ Controle total do sistema e ferramentas avançadas.
 <h2>Segurança</h2>
 
 <div class="grid">
-<div class="card">Firewall ativo</div>
-<div class="card">AppArmor</div>
-<div class="card">Atualizações automáticas</div>
-<div class="card">Repositórios assinados</div>
+<div class="card expandable" data-title="Firewall ativo" data-description="Proteção de rede ativa por padrão, monitorando conexões de entrada e saída para maior segurança do sistema.">
+    <div class="card-title">Firewall ativo <button class="card-close">×</button></div>
+    <div class="card-description"></div>
+</div>
+
+<div class="card expandable" data-title="AppArmor" data-description="Sistema de controle de acesso mandatório que limita as permissões de aplicativos para maior proteção.">
+    <div class="card-title">AppArmor <button class="card-close">×</button></div>
+    <div class="card-description"></div>
+</div>
+
+<div class="card expandable" data-title="Atualizações automáticas" data-description="Patches de segurança e atualizações aplicadas automaticamente para manter o sistema protegido contra vulnerabilidades.">
+    <div class="card-title">Atualizações automáticas <button class="card-close">×</button></div>
+    <div class="card-description"></div>
+</div>
+
+<div class="card expandable" data-title="Repositórios assinados" data-description="Pacotes digitalmente assinados que verificam autenticidade e integridade, prevenindo software malicioso.">
+    <div class="card-title">Repositórios assinados <button class="card-close">×</button></div>
+    <div class="card-description"></div>
+</div>
 </div>
 </div>
 </section>
@@ -382,6 +492,50 @@ Receba aviso quando a ISO estiver pronta:
 
 </div>
 </footer>
+
+<script>
+// Função para expandir/retrair cards
+document.querySelectorAll('.card.expandable').forEach(card => {
+    const description = card.getAttribute('data-description');
+    const descriptionElement = card.querySelector('.card-description');
+    
+    // Adiciona a descrição ao elemento
+    descriptionElement.textContent = description;
+    
+    card.addEventListener('click', function(e) {
+        // Impede que o clique no botão de fechar dispare a abertura
+        if (e.target.classList.contains('card-close')) {
+            this.classList.remove('active');
+            return;
+        }
+        
+        // Fecha outros cards abertos
+        document.querySelectorAll('.card.expandable.active').forEach(otherCard => {
+            if (otherCard !== this) {
+                otherCard.classList.remove('active');
+            }
+        });
+        
+        // Toggle do card atual
+        this.classList.toggle('active');
+    });
+    
+    // Fecha o card quando clica no botão close
+    card.querySelector('.card-close').addEventListener('click', function(e) {
+        e.stopPropagation();
+        card.classList.remove('active');
+    });
+});
+
+// Fecha cards ao clicar fora deles
+document.addEventListener('click', function(e) {
+    if (!e.target.closest('.card.expandable')) {
+        document.querySelectorAll('.card.expandable.active').forEach(card => {
+            card.classList.remove('active');
+        });
+    }
+});
+</script>
 
 </body>
 </html>
