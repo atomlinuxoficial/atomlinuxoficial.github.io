@@ -7,29 +7,33 @@
 <meta name="description" content="Atom Linux — distribuição baseada em Debian focada em estabilidade, segurança e compatibilidade com jogos.">
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:'Segoe UI',sans-serif;background:#fff;color:#222;scroll-behavior:smooth}
+body{margin:0;font-family:'Segoe UI',sans-serif;background:#fff;color:#222;scroll-behavior:smooth;overflow-x:hidden}
 .container{width:90%;max-width:1100px;margin:auto}
-header{background:#2b0a3d;color:#fff;position:sticky;top:0}
-.header-flex{display:flex;justify-content:space-between;align-items:center;padding:15px 0}
-nav a{color:#ddd;text-decoration:none;margin-left:18px}
+header{background:#2b0a3d;color:#fff;position:sticky;top:0;z-index:1000}
+.header-flex{display:flex;justify-content:space-between;align-items:center;padding:15px 0;flex-wrap:wrap;gap:15px}
+.logo-container{display:flex;align-items:center;text-decoration:none;color:#fff;gap:10px}
+.logo-img{height:35px;width:auto;max-width:100%;object-fit:contain}
+nav{display:flex;flex-wrap:wrap;gap:10px}
+nav a{color:#ddd;text-decoration:none;margin-left:8px}
 nav a:hover{color:#7a2cff}
 .hero{background:linear-gradient(135deg,#2b0a3d,#120018);color:#fff;text-align:center;padding:100px 20px}
 .hero h1{font-size:54px;margin-bottom:10px}
-.btn{display:inline-block;padding:14px 28px;background:#7a2cff;color:#fff;text-decoration:none;border-radius:12px;margin:10px}
+.btn{display:inline-block;padding:14px 28px;background:#7a2cff;color:#fff;text-decoration:none;border-radius:12px;margin:10px;border:none;cursor:pointer;font-family:inherit;font-size:16px}
 .btn:hover{background:#5f22c8}
 section{padding:70px 0}
 h2{color:#2b0a3d;border-left:5px solid #7a2cff;padding-left:12px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.card{background:#fafafa;border:1px solid #e0e0e0;border-radius:16px;padding:20px;transition:.3s}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px}
+.card{background:#fafafa;border:1px solid #e0e0e0;border-radius:16px;padding:20px;transition:.3s;word-wrap:break-word;overflow-wrap:break-word}
 .card:hover{transform:translateY(-5px)}
 .card h3{margin-top:0;color:#2b0a3d}
 .donation{background:#f8f8f8;border-radius:16px;padding:25px}
-.pix-box{background:#fff;border-left:4px solid #7a2cff;padding:15px;border-radius:8px}
-footer{background:#1a1a1a;color:#aaa;padding:35px 0;margin-top:40px}
+.pix-box{background:#fff;border-left:4px solid #7a2cff;padding:15px;border-radius:8px;word-wrap:break-word;overflow-wrap:break-word}
+footer{background:#1a1a1a;color:#aaa;padding:35px 0;margin-top:40px;text-align:center}
 @media(max-width:768px){
 .hero h1{font-size:40px}
-.header-flex{flex-direction:column}
-nav{margin-top:10px}
+.header-flex{flex-direction:column;text-align:center}
+nav{justify-content:center;margin-top:5px}
+nav a{margin:5px}
 }
 </style>
 <script>
@@ -37,13 +41,42 @@ function copyPix(){
 navigator.clipboard.writeText('atomlinuxdevs@gmail.com');
 alert('Chave PIX copiada!');
 }
+
+// Script para calcular automaticamente a barra de progresso e o valor extra (caso a meta de 50k seja batida)
+document.addEventListener("DOMContentLoaded", function() {
+  const meta = 50000; // Meta reajustada para 50k
+  
+  // ALtere este valor para definir o total arrecadado real (ex: 65500 para ver o Extra funcionando!)
+  const arrecadado = 0; 
+  
+  const porcentagem = Math.min((arrecadado / meta) * 100, 100).toFixed(0);
+  
+  // Atualiza os textos dinamicamente
+  document.getElementById("valor-arrecadado").innerText = "R$ " + arrecadado.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+  document.getElementById("porcentagem-texto").innerText = porcentagem + "% atingida";
+  document.getElementById("barra-progresso").style.width = porcentagem + "%";
+  document.getElementById("status-meta-texto").innerText = "R$ " + arrecadado.toLocaleString('pt-BR', { minimumFractionDigits: 2 }) + " de R$ " + meta.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+
+  // Lógica de valor extra para meta anual batida
+  const extraContainer = document.getElementById("extra-container");
+  if (arrecadado > meta) {
+    const extra = arrecadado - meta;
+    document.getElementById("valor-extra").innerText = "R$ " + extra.toLocaleString('pt-BR', { minimumFractionDigits: 2 }) + " extra";
+    extraContainer.style.display = "block";
+  } else {
+    extraContainer.style.display = "none";
+  }
+});
 </script>
 </head>
 <body>
 
 <header>
 <div class="container header-flex">
-<strong>Atom Linux</strong>
+<a href="#" class="logo-container">
+  <img class="logo-img" src="logo.png" alt="Logo Atom Linux" onerror="this.style.display='none';">
+  <strong style="font-size: 22px;">Atom Linux</strong>
+</a>
 <nav>
 <a href="#sobre">Sobre</a>
 <a href="#base">Base</a>
@@ -135,31 +168,18 @@ alert('Chave PIX copiada!');
 <p>Ajude a financiar a infraestrutura e os servidores do Atom Linux.</p>
 <div class="pix-box" style="margin-top: 15px;">
 <strong>Chave PIX (E-mail)</strong>
-<p>atomlinuxdevs@gmail.com</p>
-<button class="btn" onclick="copyPix()" style="margin: 10px 0 0 0;">Copiar Chave PIX</button>
+<p style="margin: 5px 0 10px 0; font-weight: bold; color: #7a2cff;">atomlinuxdevs@gmail.com</p>
+<button class="btn" onclick="copyPix()" style="margin: 0; padding: 10px 20px; width: 100%;">Copiar Chave PIX</button>
 </div>
 </div>
 
 <div class="card">
 <h3>🏆 Ranking de Doadores</h3>
-<ul style="list-style: none; padding: 0; margin: 15px 0 0 0;">
-<li style="padding: 10px 0; border-bottom: 1px solid #e0e0e0; display: flex; justify-content: space-between;">
-<span>🥇 <strong>DebianFanatic</strong></span>
-<span style="color: #7a2cff; font-weight: bold;">R$ 150,00</span>
-</li>
-<li style="padding: 10px 0; border-bottom: 1px solid #e0e0e0; display: flex; justify-content: space-between;">
-<span>🥈 <strong>TuxMaster</strong></span>
-<span style="color: #7a2cff; font-weight: bold;">R$ 100,00</span>
-</li>
-<li style="padding: 10px 0; border-bottom: 1px solid #e0e0e0; display: flex; justify-content: space-between;">
-<span>🥉 <strong>Anonimo_01</strong></span>
-<span style="color: #7a2cff; font-weight: bold;">R$ 50,00</span>
-</li>
-<li style="padding: 10px 0; display: flex; justify-content: space-between;">
-<span>4. <strong>KDEPinguim</strong></span>
-<span style="color: #7a2cff; font-weight: bold;">R$ 30,00</span>
-</li>
-</ul>
+<div style="text-align: center; padding: 25px 10px; color: #666;">
+<p style="font-size: 32px; margin: 0 0 10px 0;">🚀</p>
+<p style="margin: 0; font-weight: bold; color: #2b0a3d;">Nenhum doador ainda</p>
+<p style="margin: 8px 0 0 0; font-size: 13px; color: #888; line-height: 1.4;">Seja o primeiro a apoiar o Atom Linux e garanta o seu lugar de destaque aqui!</p>
+</div>
 </div>
 
 <div class="card">
@@ -167,21 +187,27 @@ alert('Chave PIX copiada!');
 <div style="margin-top: 15px;">
 <div style="margin-bottom: 15px;">
 <span style="display: block; font-size: 14px; color: #666;">Doações Confirmadas</span>
-<strong style="font-size: 28px; color: #2b0a3d;">4 apoios</strong>
+<strong style="font-size: 28px; color: #2b0a3d;">0 apoios</strong>
 </div>
-<div style="margin-bottom: 20px;">
+<div style="margin-bottom: 15px;">
 <span style="display: block; font-size: 14px; color: #666;">Total Arrecadado</span>
-<strong style="font-size: 28px; color: #7a2cff;">R$ 330,00</strong>
+<strong id="valor-arrecadado" style="font-size: 28px; color: #7a2cff;">R$ 0,00</strong>
 </div>
+
+<div id="extra-container" style="margin-bottom: 20px; background: #e6f9ed; border-left: 4px solid #2e7d32; padding: 10px; border-radius: 6px; display: none;">
+<span style="display: block; font-size: 12px; color: #2e7d32; font-weight: bold;">🎉 Meta Anual Batida!</span>
+<strong id="valor-extra" style="font-size: 18px; color: #1b5e20;">+ R$ 0,00 extra</strong>
+</div>
+
 <div>
 <div style="display: flex; justify-content: space-between; font-size: 12px; color: #666; margin-bottom: 5px;">
-<span>Meta do Mês</span>
-<span>66% atingida</span>
+<span>Meta Anual (Infraestrutura)</span>
+<span id="porcentagem-texto">0% atingida</span>
 </div>
 <div style="background: #e0e0e0; border-radius: 10px; height: 10px; width: 100%; overflow: hidden;">
-<div style="background: linear-gradient(90deg, #7a2cff, #2b0a3d); width: 66%; height: 100%; border-radius: 10px;"></div>
+<div id="barra-progresso" style="background: linear-gradient(90deg, #7a2cff, #2b0a3d); width: 0%; height: 100%; border-radius: 10px; transition: width 0.5s ease-in-out;"></div>
 </div>
-<span style="display: block; font-size: 11px; color: #888; margin-top: 5px; text-align: right;">R$ 330,00 de R$ 500,00</span>
+<span id="status-meta-texto" style="display: block; font-size: 11px; color: #888; margin-top: 5px; text-align: right;">R$ 0,00 de R$ 50.000,00</span>
 </div>
 </div>
 </div>
@@ -197,9 +223,9 @@ alert('Chave PIX copiada!');
 <p><strong>Atom Linux ainda está em desenvolvimento.</strong></p>
 <p>Cadastre seu e-mail quando o projeto estiver pronto para lançamento público.</p>
 <form action="https://formspree.io/f/xnjkwqjz" method="POST">
-<input type="email" name="email" placeholder="Seu e-mail" required style="padding:12px;width:100%;max-width:400px;">
+<input type="email" name="email" placeholder="Seu e-mail" required style="padding:12px;width:100%;max-width:400px;border: 1px solid #ccc; border-radius: 8px;">
 <br><br>
-<button class="btn" type="submit">Notificar-me</button>
+<button class="btn" type="submit" style="margin-left: 0;">Notificar-me</button>
 </form>
 </div>
 </div>
