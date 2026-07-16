@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Atom Linux</title>
-<meta name="description" content="Atom Linux — distribuição baseada em Debian focada em estabilidade, segurança e compatibilidade com jogos.">
+<meta name="description" content="Atom Linux — distribuição baseada em Fedora focada em desempenho, estabilidade, segurança e liberdade de personalização.">
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:'Segoe UI',sans-serif;background:#fff;color:#222;scroll-behavior:smooth;overflow-x:hidden}
 .container{width:90%;max-width:1100px;margin:auto}
 header{background:#2b0a3d;color:#fff;position:sticky;top:0;z-index:1000}
 .header-flex{display:flex;justify-content:space-between;align-items:center;padding:15px 0;flex-wrap:wrap;gap:15px}
-.logo-container{display:flex;align-items:center;text-decoration:none;color:#fff;gap:10px}
-.logo-img{height:35px;width:auto;max-width:100%;object-fit:contain}
+.logo-container{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:#fff;gap:5px;text-align:center}
+.logo-img{height:60px;width:auto;max-width:100%;object-fit:contain}
 nav{display:flex;flex-wrap:wrap;gap:10px}
 nav a{color:#ddd;text-decoration:none;margin-left:8px}
 nav a:hover{color:#7a2cff}
@@ -44,9 +44,9 @@ alert('Chave PIX copiada!');
 
 // Script para calcular automaticamente a barra de progresso e o valor extra (caso a meta de 50k seja batida)
 document.addEventListener("DOMContentLoaded", function() {
-  const meta = 50000; // Meta reajustada para 50k
+  const meta = 50000; // Meta anual de 50k
   
-  // ALtere este valor para definir o total arrecadado real (ex: 65500 para ver o Extra funcionando!)
+  // Altere este valor para definir o total arrecadado real (ex: 65500 para ver o Extra funcionando!)
   const arrecadado = 0; 
   
   const porcentagem = Math.min((arrecadado / meta) * 100, 100).toFixed(0);
@@ -74,15 +74,14 @@ document.addEventListener("DOMContentLoaded", function() {
 <header>
 <div class="container header-flex">
 <a href="#" class="logo-container">
-  <img class="logo-img" src="logo.png" alt="Logo Atom Linux" onerror="this.style.display='none';">
-  <strong style="font-size: 22px;">Atom Linux</strong>
+  <img class="logo-img" src="29497.png" alt="Logo Atom Linux" onerror="this.style.display='none';">
+  <strong style="font-size: 20px; letter-spacing: 0.5px;">Atom Linux</strong>
 </a>
 <nav>
 <a href="#sobre">Sobre</a>
 <a href="#base">Base</a>
 <a href="#edicoes">Edições</a>
-<a href="#jogos">Jogos</a>
-<a href="#seguranca">Segurança</a>
+<a href="#filosofia">Filosofia</a>
 <a href="#doacoes">Doações</a>
 <a href="#download">Download</a>
 </nav>
@@ -91,33 +90,35 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <section class="hero">
 <h1>Atom Linux</h1>
-<p>Comece fácil. Cresça sem limites.</p>
-<p>Distribuição baseada em Debian criada para unir estabilidade, jogos Windows e liberdade de personalização.</p>
+<p style="font-size: 20px; font-weight: bold; margin-bottom: 15px;">Comece fácil. Cresça sem limites.</p>
+<p>Uma distribuição inovadora criada para unir desempenho, estabilidade, segurança e liberdade de personalização em um único sistema.</p>
 <a class="btn" href="#download">Baixar Atom Linux</a>
 <a class="btn" href="#doacoes">❤️ Apoiar Projeto</a>
 </section>
 
 <section id="sobre">
 <div class="container">
-<h2>Sobre</h2>
-<p>O Atom Linux busca entregar uma experiência amigável para iniciantes sem limitar usuários avançados. O objetivo é oferecer estabilidade, desempenho e compatibilidade para trabalho, estudo e jogos.</p>
+<h2>Sobre o Atom Linux</h2>
+<p>O <strong>Atom Linux</strong> é uma distribuição GNU/Linux moderna baseada no robusto ecossistema do <strong>Fedora</strong>. Desenvolvido para usuários iniciantes, estudantes, criadores de conteúdo, programadores e entusiastas da tecnologia, ele traz o refinamento do ambiente visual KDE Plasma, unindo simplicidade para quem está dando os primeiros passos e o máximo poder de customização para quem precisa ir além.</p>
 </div>
 </section>
 
 <section id="base">
 <div class="container">
-<h2>Base do Sistema</h2>
+<h2>Base e Recursos do Sistema</h2>
 <div class="grid">
 
-<div class="card"><h3>Debian Stable</h3><p>Base sólida do sistema. Prioriza estabilidade, confiabilidade e suporte de longo prazo.</p></div>
+<div class="card"><h3>Base Fedora</h3><p>Construído sobre o Fedora, garantindo acesso rápido a tecnologias modernas do ecossistema Linux e excelente suporte a novos hardwares.</p></div>
 
-<div class="card"><h3>KDE Plasma</h3><p>Interface moderna, elegante e altamente personalizável para todos os tipos de usuários.</p></div>
+<div class="card"><h3>KDE Plasma</h3><p>Interface moderna, extremamente elegante, leve e completamente personalizável para se adaptar ao seu fluxo de trabalho.</p></div>
 
-<div class="card"><h3>APT</h3><p>Gerenciador oficial de pacotes para instalar e atualizar programas com segurança.</p></div>
+<div class="card"><h3>DNF</h3><p>Gerenciador oficial de pacotes inteligente para instalar, atualizar e remover programas de forma rápida e segura.</p></div>
 
-<div class="card"><h3>Flatpak</h3><p>Instale aplicativos universais e mantenha versões recentes dos programas.</p></div>
+<div class="card"><h3>Flatpak & AppImage</h3><p>Suporte nativo aos formatos de pacotes universais mais utilizados para garantir aplicativos sempre atualizados.</p></div>
 
-<div class="card"><h3>AppImage</h3><p>Aplicativos portáteis que funcionam sem necessidade de instalação.</p></div>
+<div class="card"><h3>Compatibilidade Windows (Wine)</h3><p>Execute jogos e softwares legados do Windows diretamente no sistema com máxima facilidade e otimização.</p></div>
+
+<div class="card"><h3>Estabilidade & Jogos</h3><p>Sistema totalmente otimizado para tarefas de produtividade diária, estudos acadêmicos, desenvolvimento de software e jogatinas intensas.</p></div>
 
 </div>
 </div>
@@ -125,34 +126,47 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <section id="edicoes">
 <div class="container">
-<h2>Edições</h2>
+<h2>Edições Oficiais</h2>
 <div class="grid">
-<div class="card"><h3>Amigável</h3><p>Voltada para iniciantes com configuração simplificada, atualizações automáticas e instalação fácil de programas.</p></div>
-<div class="card"><h3>Pro</h3><p>Voltada para usuários avançados que desejam controle total e máxima personalização.</p></div>
+<div class="card">
+  <h3>Atom Linux Amigável</h3>
+  <p>Projetada especialmente para quem está migrando de outros sistemas operacionais ou iniciando no mundo Linux.</p>
+  <ul style="padding-left: 20px; color: #555; font-size: 14px; line-height: 1.6;">
+    <li>Interface de usuário simplificada</li>
+    <li>Assistentes visuais de configuração inicial</li>
+    <li>Atualizações fáceis em um clique</li>
+    <li>Instalação simplificada de novos programas</li>
+    <li>Configuração e reconhecimento automático de drivers</li>
+  </ul>
+</div>
+<div class="card">
+  <h3>Atom Linux Pro</h3>
+  <p>A edição ideal para desenvolvedores, sysadmins e entusiastas que exigem controle total sobre o sistema operacional.</p>
+  <ul style="padding-left: 20px; color: #555; font-size: 14px; line-height: 1.6;">
+    <li>Liberdade de personalização completa</li>
+    <li>Ferramentas prontas para desenvolvimento e programação</li>
+    <li>Configurações avançadas do sistema totalmente desbloqueadas</li>
+    <li>Ambiente otimizado para servidores e automações</li>
+  </ul>
+</div>
 </div>
 </div>
 </section>
 
-<section id="jogos">
+<section id="filosofia" style="background: #fafafa;">
 <div class="container">
-<h2>Jogos</h2>
+<h2>Filosofia & Missão</h2>
 <div class="grid">
-<div class="card"><h3>Steam</h3><p>Milhares de jogos disponíveis com suporte ao Proton.</p></div>
-<div class="card"><h3>Wine</h3><p>Execute programas e jogos do Windows diretamente no Linux.</p></div>
-<div class="card"><h3>Lutris</h3><p>Gerencie bibliotecas de jogos de diferentes plataformas.</p></div>
-<div class="card"><h3>Proton GE</h3><p>Compatibilidade aprimorada para títulos modernos e antigos.</p></div>
+<div class="card" style="background: #fff;">
+  <h3>Filosofia</h3>
+  <p>Acreditamos em um princípio simples: <strong>Comece fácil. Cresça sem limites.</strong></p>
+  <p style="color: #555;">Você não precisa mudar ou abandonar a sua distribuição à medida que evolui no conhecimento tecnológico. O Atom Linux foi projetado de forma flexível para crescer e se transformar junto com você.</p>
 </div>
+<div class="card" style="background: #fff;">
+  <h3>Missão</h3>
+  <p>Oferecer um sistema operacional acessível, extremamente seguro e poderoso.</p>
+  <p style="color: #555;">Buscamos entregar uma experiência agradável desde o seu primeiríssimo contato com o Linux até os desafios mais exigentes e avançados do universo da computação.</p>
 </div>
-</section>
-
-<section id="seguranca">
-<div class="container">
-<h2>Segurança</h2>
-<div class="grid">
-<div class="card"><h3>Firewall Ativo</h3><p>Proteção de rede habilitada por padrão.</p></div>
-<div class="card"><h3>AppArmor</h3><p>Restringe permissões de aplicativos para maior segurança.</p></div>
-<div class="card"><h3>Atualizações Automáticas</h3><p>Correções críticas instaladas rapidamente.</p></div>
-<div class="card"><h3>Repositórios Assinados</h3><p>Verificação digital dos pacotes instalados.</p></div>
 </div>
 </div>
 </section>
@@ -160,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <section id="doacoes">
 <div class="container">
 <h2>Doações</h2>
-<p style="margin-bottom: 25px;">Cada contribuição ajuda a manter e melhorar o desenvolvimento do projeto.</p>
+<p style="margin-bottom: 25px;">Cada contribuição nos ajuda a financiar a infraestrutura e a manter o desenvolvimento contínuo do projeto ativo.</p>
 <div class="grid">
 
 <div class="card">
@@ -233,7 +247,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <footer>
 <div class="container">
-<p>Atom Linux — Projeto baseado em Debian</p>
+<p>Atom Linux — Projeto baseado em Fedora</p>
 <p>GitHub • Discord • atomlinuxdevs@gmail.com</p>
 </div>
 </footer>
